@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      UserRole @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  blogs     Blog[]
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+}
+
+model Project {
+  id             String   @id @default(cuid())
+  title          String
+  description    String
+  summary        String?
+  technologies   String[] @default([])
+  githubUrl      String?
+  liveUrl        String?
+  demoVideoUrl   String?
+  repoVisibility String   @default("public")
+  featured       Boolean  @default(false)
+  coverImage     String? // URL
+  slug           String   @unique
+  published      Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Blog {
+  id         String   @id @default(cuid())
+  title      String
+  slug       String   @unique
+  summary    String?
+  content    String // rich text (html or markdown)
+  coverImage String? // URL
+  category   String   @default("General")
+  tags       String[] @default([])
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  authorId   String?
+  author     User?    @relation(fields: [authorId], references: [id])
+}
+
+model Video {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  thumbnail   String? // URL
+  url         String // YouTube URL or direct video URL
+  slug        String   @unique
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  category  String?
+  level     Int // percentage 0..100
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  body      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id               String   @id @default(cuid())
+  siteTitle        String?
+  description      String?
+  cvUrl            String? // URL to CV
+  homeBackground   String?
+  welcomeTitle     String?
+  heroName         String?
+  heroSubtitle     String?
+  passionText      String?
+  introductionText String?
+  contactPhone     String?
+  contactEmail     String?
+  aboutContent     Json?
+  socialLinks      Json?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

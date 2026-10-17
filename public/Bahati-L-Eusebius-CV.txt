@@ -1,0 +1,27 @@
+Bahati L. Eusebius
+Cybersecurity Engineer | Developer | Ethical Hacker
+
+Profile
+I build secure, intelligent systems with a focus on cybersecurity, AI-assisted defense,
+full-stack engineering, and operational resilience.
+
+Core Strengths
+- Cybersecurity engineering
+- Secure application architecture
+- Ethical hacking mindset
+- AI systems and intelligent automation
+- Next.js, Node.js, Python, Linux
+
+Featured Systems
+- GRAYLUCK AI Firewall
+- VORTEX AI Firewall
+- OBLIVION SENTINEL
+- Trading AI System
+- Security Automation Toolkit
+
+Contact
+Phone: +254 769101739
+Email: bahatieusebius@gmail.com
+
+Note
+Replace this text file with your final PDF CV when you are ready for deployment.

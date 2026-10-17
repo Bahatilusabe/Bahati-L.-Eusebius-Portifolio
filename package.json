@@ -1,0 +1,46 @@
+{
+  "name": "bahati-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "prisma:migrate:prod": "prisma migrate deploy",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "seed": "node prisma/seed.js",
+    "lint": "eslint .",
+    "backend": "node backend/server.js",
+    "dev:full": "concurrently -k -n web,api -c cyan,magenta \"npm run dev\" \"npm run backend\""
+  },
+  "dependencies": {
+    "@swc/helpers": "latest",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "cookie": "^1.1.1",
+    "cors": "latest",
+    "dotenv": "^17.4.2",
+    "express": "latest",
+    "formidable": "^3.5.4",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "latest"
+  },
+  "devDependencies": {
+    "@prisma/client": "^4.15.0",
+    "@tailwindcss/postcss": "latest",
+    "autoprefixer": "latest",
+    "concurrently": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "prisma": "^4.15.0",
+    "tailwindcss": "latest"
+  }
+}
